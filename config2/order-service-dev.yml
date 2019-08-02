@@ -1,11 +1,16 @@
 spring:
   application:
     name: order-service
+rabbitmq:
+   host: 192.168.64.140
+   port: 5672
+   username: admin
+   password: admin    
     
 # server:
 #  port: 8201
   
-#在两台eureka上都注册  
+
 eureka:
   client:
     service-url:
@@ -13,7 +18,7 @@ eureka:
       
 feign:
   hystrix:
-    enabled: true #开启hystrix
+    enabled: true 
     
 hystrix:
   command:
@@ -21,15 +26,14 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 1000   #超时时间，默认也是一秒 
+            timeoutInMilliseconds: 1000  
             
     
 management:
   endpoints:
     web:
       exposure:
-        include: hystrix.stream  #暴露端口，用来监控
-        
+        include: hystrix.stream  
 ---
 spring:
   profiles: order1

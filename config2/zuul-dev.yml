@@ -1,6 +1,11 @@
 spring:
   application:
     name: zuul
+rabbitmq:
+   host: 192.168.64.140
+   port: 5672
+   username: admin
+   password: admin
     
 server:
   port: 3001
@@ -10,7 +15,7 @@ eureka:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
 
-#service id和路径相同则不同配置 
+#service id鍜岃矾寰勭浉鍚屽垯涓嶅悓閰嶇疆 
 #zuul:
 #  routes: 
 #    item-service: /item-service/**
@@ -20,7 +25,7 @@ eureka:
 zuul:
   retryable: true
 
-#可以不配置，有默认值
+#鍙互涓嶉厤缃紝鏈夐粯璁ゅ��
 ribbon:
   ConnectTimeout: 1000
   ReadTimeout: 1000
@@ -35,7 +40,7 @@ hystrix:
           thread:
             timeoutInMilliseconds: 500 
 
-#暴露 hystrix.stream 监控端点            
+#鏆撮湶 hystrix.stream 鐩戞帶绔偣            
 management:
   endpoints:
     web:
